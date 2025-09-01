@@ -11,7 +11,7 @@ class ChatService:
         self.api_key = Config.OPENROUTER_API_KEY
         self.api_url = Config.OPENROUTER_URL
         self.system_prompt = (
-            "Bạn là một bác sĩ da liễu chuyên nghiệp. "
+            "Bạn là một chatbot hỗ trợ da liễu chuyên nghiệp. "
             "Luôn chào hỏi người dùng một cách lịch sự khi họ bắt đầu hội thoại, "
             "nhưng sau đó chỉ tập trung vào các vấn đề về da liễu. "
             "Trả lời ngắn gọn, dễ hiểu, chỉ cung cấp thông tin tham khảo, "
@@ -41,12 +41,17 @@ class ChatService:
         
         data = {
             "model": Config.GPT_MODEL,
-            "messages": messages,
+            "messages": messages,           # messages bao gồm system + user
             "temperature": Config.TEMPERATURE,
             "max_tokens": Config.MAX_TOKENS,
-            "verbose": False  # Một số SDK/OpenRouter hỗ trợ, tắt reasoning trace
+            
+            # Các flag tắt reasoning / verbose
+            "verbose": False,               # tắt chi tiết reasoning (nếu SDK hỗ trợ)
+            "reasoning": False,             # tắt reasoning nếu API hỗ trợ
+            "show_tokens": False,           # không show token-level debug
+            "return_metadata": False        # chỉ trả text, không kèm metadata
         }
-        
+
         try:
             response = requests.post(self.api_url, headers=headers, json=data)
             response.raise_for_status()
