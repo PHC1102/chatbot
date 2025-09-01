@@ -36,7 +36,19 @@ class ChatService:
         try:
             response = requests.post(self.api_url, headers=headers, json=data)
             response.raise_for_status()
-            return response.json()["choices"][0]["message"]["content"]
+            response_content = response.json()["choices"][0]["message"]["content"]
+
+            marker = "assistantfinal"
+            idx = response_content.lower().find(marker)  # tìm marker, không phân biệt hoa thường
+
+            if idx != -1:
+                # lấy text ngay sau marker
+                final_text = response_content[idx + len(marker):].strip()
+            else:
+                # nếu không có marker thì dùng toàn bộ content
+                final_text = response_content.strip()
+
+            return final_text
         except Exception as e:
             return f"Lỗi khi gọi API: {str(e)}"
     
