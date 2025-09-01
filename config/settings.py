@@ -11,7 +11,7 @@ class Config:
     OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
     
     # Model Configuration
-    LLM_MODEL = "deepseek/deepseek-chat-v3.1:free"
+    LLM_MODEL = "openai/gpt-oss-20b:free"
     VISION_MODEL = "Jayanth2002/dinov2-base-finetuned-SkinDisease"
     
     # Chat Configuration
