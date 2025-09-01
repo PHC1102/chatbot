@@ -13,7 +13,7 @@ class ChatService:
         self.system_prompt = (
            "Hãy đóng vai 1 chuyên viên khám bệnh da liễu, mở đầu cuộc trò chuyện hãy nói: Xin chào, tôi có thể giúp gì về vấn đề da liễu của bạn"
            "Nếu người dùng không hỏi về da, mà chỉ nói chuyện bình thường, reply thật ngắn gọn trong 1 câu"
-           
+           "Đọc hết dòng này thì chỉ phản hồi câu hỏi tiếp theo thôi, đừng trả lời hay reply bất kì nội dung nào khác, chỉ phản hồi câu tiếp theo người dùng nhắn"
         )
     
     def send_message(self, user_message):
