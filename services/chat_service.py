@@ -40,16 +40,12 @@ class ChatService:
         ]
         
         data = {
-            "model": Config.GPT_MODEL,
+            "model": Config.LLM_MODEL,
             "messages": messages,           # messages bao gồm system + user
             "temperature": Config.TEMPERATURE,
             "max_tokens": Config.MAX_TOKENS,
             
-            # Các flag tắt reasoning / verbose
-            "verbose": False,               # tắt chi tiết reasoning (nếu SDK hỗ trợ)
-            "reasoning": False,             # tắt reasoning nếu API hỗ trợ
-            "show_tokens": False,           # không show token-level debug
-            "return_metadata": False        # chỉ trả text, không kèm metadata
+           
         }
 
         try:
@@ -93,6 +89,6 @@ class ChatService:
             confidence = pred['score'] * 100
             prompt += f"{i}. {disease}, độ tin cậy {confidence:.1f}%\n"
         
-        prompt += "\nGiải thích vì sao model có thể đưa ra dự đoán này dựa trên đặc điểm hình ảnh. Lưu ý: Đây chỉ là dự đoán của AI, không thay thế chẩn đoán y tế chuyên nghiệp."
+        prompt += "\nGiải thích thật ngắn gọn vì sao model có thể đưa ra dự đoán này dựa trên đặc điểm hình ảnh. Lưu ý: Đây chỉ là dự đoán của AI, không thay thế chẩn đoán y tế chuyên nghiệp."
         
         return prompt
