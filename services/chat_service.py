@@ -11,7 +11,7 @@ class ChatService:
         self.api_key = Config.OPENROUTER_API_KEY
         self.api_url = Config.OPENROUTER_URL
         self.system_prompt = (
-           " "
+           "Hãy đóng vai 1 chuyên viên khám bệnh da liễu "
         )
     
     def send_message(self, user_message):
