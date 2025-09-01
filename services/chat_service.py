@@ -10,40 +10,29 @@ class ChatService:
     def __init__(self):
         self.api_key = Config.OPENROUTER_API_KEY
         self.api_url = Config.OPENROUTER_URL
-        self.system_prompt = (
-           ""
-        )
     
-    def send_message(self, user_message):
+    def send_message(self, messages):
         """
         Send message to GPT-OSS via OpenRouter
         
         Args:
-            user_message: String, nội dung người dùng
+            messages: List of message objects in OpenAI format
             
         Returns:
-            String response từ GPT-OSS
+            String response from GPT-OSS
         """
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
         
-        # Messages: luôn có system prompt đầu tiên, rồi user message
-        messages = [
-            {"role": "system", "content": self.system_prompt},
-            {"role": "user", "content": user_message}
-        ]
-        
         data = {
             "model": Config.LLM_MODEL,
-            "messages": messages,           # messages bao gồm system + user
+            "messages": messages,
             "temperature": Config.TEMPERATURE,
-            "max_tokens": Config.MAX_TOKENS,
-            
-           
+            "max_tokens": Config.MAX_TOKENS
         }
-
+        
         try:
             response = requests.post(self.api_url, headers=headers, json=data)
             response.raise_for_status()
@@ -85,7 +74,6 @@ class ChatService:
             confidence = pred['score'] * 100
             prompt += f"{i}. {disease}, độ tin cậy {confidence:.1f}%\n"
         
-        prompt += "\nGiải thích thật ngắn gọn, lí do khiến model đưa ra chẩn đoán đó và lí do confidence ở mức đó"
-        
+        prompt += "\nGiải thích thật ngắn gọn vì sao model có thể đưa ra dự đoán này dựa trên đặc điểm hình ảnh. Lưu ý: Đây chỉ là dự đoán của AI, không thay thế chẩn đoán y tế chuyên nghiệp."
         
         return prompt
