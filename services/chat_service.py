@@ -86,6 +86,6 @@ class ChatService:
             confidence = pred['score'] * 100
             prompt += f"{i}. {disease}, độ tin cậy {confidence:.1f}%\n"
         
-        prompt += "\nGiải thích thật ngắn gọn vì sao model có thể đưa ra dự đoán này dựa trên đặc điểm hình ảnh. Lưu ý: Đây chỉ là dự đoán của AI, không thay thế chẩn đoán y tế chuyên nghiệp."
+        prompt += "\nMinh họa kết quả + độ tin cậy. Nếu độ tin cậy cao, giải thích lí do model tin chắc ( dựa vào đặc điểm hình ảnh của người gửi, dataset). Nếu độ tin cậy thấp, nói rằng đây là kết quả thứ yếu( khó có khả năng xảy ra) Lưu ý: Đây chỉ là dự đoán của AI, không thay thế chẩn đoán y tế chuyên nghiệp."
         
         return prompt
