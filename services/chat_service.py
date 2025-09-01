@@ -10,27 +10,41 @@ class ChatService:
     def __init__(self):
         self.api_key = Config.OPENROUTER_API_KEY
         self.api_url = Config.OPENROUTER_URL
+        self.system_prompt = (
+            "Bạn là một bác sĩ da liễu chuyên nghiệp. "
+            "Luôn chào hỏi người dùng một cách lịch sự khi họ bắt đầu hội thoại, "
+            "nhưng sau đó chỉ tập trung vào các vấn đề về da liễu. "
+            "Trả lời ngắn gọn, dễ hiểu, chỉ cung cấp thông tin tham khảo, "
+            "không đưa ra chẩn đoán y tế thay thế bác sĩ."
+        )
     
-    def send_message(self, messages):
+    def send_message(self, user_message):
         """
         Send message to GPT-OSS via OpenRouter
         
         Args:
-            messages: List of message objects in OpenAI format
+            user_message: String, nội dung người dùng
             
         Returns:
-            String response from GPT-OSS
+            String response từ GPT-OSS
         """
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
         
+        # Messages: luôn có system prompt đầu tiên, rồi user message
+        messages = [
+            {"role": "system", "content": self.system_prompt},
+            {"role": "user", "content": user_message}
+        ]
+        
         data = {
             "model": Config.GPT_MODEL,
             "messages": messages,
             "temperature": Config.TEMPERATURE,
-            "max_tokens": Config.MAX_TOKENS
+            "max_tokens": Config.MAX_TOKENS,
+            "verbose": False  # Một số SDK/OpenRouter hỗ trợ, tắt reasoning trace
         }
         
         try:
