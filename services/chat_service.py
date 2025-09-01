@@ -108,6 +108,6 @@ Hãy trò chuyện bằng tiếng Việt và giữ giọng điệu chuyên nghi�
             confidence = pred['score'] * 100
             prompt += f"{i}. {disease}, độ tin cậy {confidence:.1f}%\n"
         
-        prompt += "\nMinh họa kết quả + độ tin cậy. Nếu độ tin cậy cao, giải thích lí do model tin chắc ( dựa vào đặc điểm hình ảnh của người gửi, dataset). Nếu độ tin cậy thấp, nói rằng đây là kết quả thứ yếu( khó có khả năng xảy ra) Lưu ý: Đây chỉ là dự đoán của AI, không thay thế chẩn đoán y tế chuyên nghiệp."
+        prompt += "\nMinh họa kết quả + độ tin cậy. Nếu độ tin cậy cao, giải thích thật ngắn gọn lí do model tin chắc ( dựa vào đặc điểm hình ảnh của người gửi, dataset). Nếu độ tin cậy thấp, nói rằng đây là kết quả thứ yếu( khó có khả năng xảy ra) Lưu ý: Đây chỉ là dự đoán của AI, không thay thế chẩn đoán y tế chuyên nghiệp."
         
         return prompt
