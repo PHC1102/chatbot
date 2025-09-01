@@ -11,9 +11,7 @@ class ChatService:
         self.api_key = Config.OPENROUTER_API_KEY
         self.api_url = Config.OPENROUTER_URL
         self.system_prompt = (
-            "Mở đầu cuộc hội thoại bằng việc chào và hỏi xem họ bị vấn đề da liễu gì: "
-            "Trả lời ngắn gọn, dễ hiểu "
-            "luôn note rằng bạn không đưa ra chẩn đoán y tế thay thế bác sĩ."
+           " "
         )
     
     def send_message(self, user_message):
