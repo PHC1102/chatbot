@@ -45,11 +45,7 @@ class ChatService:
             "temperature": Config.TEMPERATURE,
             "max_tokens": Config.MAX_TOKENS,
             
-            # Các flag tắt reasoning / verbose
-            "verbose": False,               # tắt chi tiết reasoning (nếu SDK hỗ trợ)
-            "reasoning": False,             # tắt reasoning nếu API hỗ trợ
-            "show_tokens": False,           # không show token-level debug
-            "return_metadata": False        # chỉ trả text, không kèm metadata
+           
         }
 
         try:
