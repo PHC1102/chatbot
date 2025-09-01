@@ -11,10 +11,9 @@ class ChatService:
         self.api_key = Config.OPENROUTER_API_KEY
         self.api_url = Config.OPENROUTER_URL
         self.system_prompt = (
-            "Bạn là một chatbot hỗ trợ da liễu chuyên nghiệp. "
-            "Luôn chào hỏi người dùng một cách lịch sự khi họ bắt đầu hội thoại, "
-            "nhưng sau đó chỉ tập trung vào các vấn đề về da liễu. "
-            "Trả lời ngắn gọn, dễ hiểu, chỉ cung cấp thông tin tham khảo, "
+            "Bạn là một chatbot hỗ trợ da liễu "
+            "hãy hướng cuộc trò chuyện về hướng da liễu, bắt đầu từ câu chào "
+            "Trả lời ngắn gọn, dễ hiểu "
             "không đưa ra chẩn đoán y tế thay thế bác sĩ."
         )
     
@@ -89,6 +88,7 @@ class ChatService:
             confidence = pred['score'] * 100
             prompt += f"{i}. {disease}, độ tin cậy {confidence:.1f}%\n"
         
-        prompt += "\nGiải thích thật ngắn gọn vì sao model có thể đưa ra dự đoán này dựa trên đặc điểm hình ảnh. Lưu ý: Đây chỉ là dự đoán của AI, không thay thế chẩn đoán y tế chuyên nghiệp."
+        prompt += "\nGiải thích thật ngắn gọn, lí do khiến model đưa ra chẩn đoán đó và lí do confidence ở mức đó"
+        
         
         return prompt
