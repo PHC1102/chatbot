@@ -53,7 +53,7 @@ Hãy trò chuyện bằng tiếng Việt và giữ giọng điệu chuyên nghi�
         }
 
         try:
-            response = requests.post(f"{self.api_url}/chat/completions",
+            response = requests.post(f"{self.api_url}",
                                      headers=headers,
                                      json=data,
                                      timeout=10)  # timeout 30s
