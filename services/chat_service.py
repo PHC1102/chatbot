@@ -14,6 +14,7 @@ class ChatService:
         self.client = OpenAI(
             base_url=self.api_url,
             api_key=self.api_key
+
         )
     
     def send_message(self, messages):
@@ -52,6 +53,9 @@ Hãy trò chuyện bằng tiếng Việt và giữ giọng điệu chuyên nghi�
         
         try:
             response = self.client.chat.completions.create(
+                extra_headers={
+                "HTTP-Referer": "https://chatbot-dq6t7s3dsjt2zcw8wtkqbh.streamlit.app", # Optional. Site URL for rankings on openrouter.ai.
+                },
                 model=Config.LLM_MODEL,
                 messages=messages,
                 temperature=Config.TEMPERATURE,
