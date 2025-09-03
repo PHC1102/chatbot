@@ -76,10 +76,6 @@ class UIComponents:
             model_status: Boolean indicating if models are loaded
         """
         with st.sidebar:
-            # Diagnosis toggle button at top
-            st.markdown("### 🔬 Chức năng")
-            # This will be handled in main app
-            
             st.markdown("### ℹ️ Thông tin")
             st.markdown("""
             **💬 Chat thường:**

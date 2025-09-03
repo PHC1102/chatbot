@@ -68,7 +68,7 @@ class MedicalChatbot:
                 with st.spinner("Đang suy nghĩ..."):
                     messages = self.session_manager.get_messages()
                     api_messages = self.chat_service.prepare_messages_for_api(messages)
-                    response = self.chat_service.send_message(api_messages, is_diagnosis=False)
+                    response = self.chat_service.send_message(api_messages)
                     st.markdown(response)
                     
                     # Add assistant response to history
@@ -82,10 +82,6 @@ class MedicalChatbot:
             self.error_handler.display_error(Config.MODEL_LOAD_ERROR)
             self.session_manager.set_diagnosis_mode(False)
             return
-        
-        # Show diagnosis interface
-        st.markdown("### 📷 Chế độ chẩn đoán đang hoạt động")
-        st.info("🔍 Tải ảnh da liễu lên để bắt đầu phân tích")
         
         # Show file uploader
         uploaded_file = self.ui_components.render_file_uploader()
@@ -111,7 +107,7 @@ class MedicalChatbot:
                     self.error_handler.display_error(response_message)
                     self.session_manager.add_message("assistant", response_message)
             
-            # Return to chat mode automatically
+            # Return to chat mode
             self.session_manager.set_diagnosis_mode(False)
             st.rerun()
     
