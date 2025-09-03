@@ -11,7 +11,7 @@ class Config:
     OPENROUTER_URL = "https://openrouter.ai/api/v1"
     
     # Model Configuration
-    LLM_MODEL = "openai/gpt-oss-20b:free"
+    LLM_MODEL = "qwen/qwen3-4b:free"
     VISION_MODEL = "Jayanth2002/dinov2-base-finetuned-SkinDisease"
     
     # Chat Configuration
