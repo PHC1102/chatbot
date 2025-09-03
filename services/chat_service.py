@@ -3,6 +3,7 @@ Chat service for handling GPT-OSS interactions
 """
 import requests
 from config.settings import Config
+from openai import OpenAI
 
 class ChatService:
     """Service for handling chat interactions with GPT-OSS"""
@@ -10,25 +11,19 @@ class ChatService:
     def __init__(self):
         self.api_key = Config.OPENROUTER_API_KEY
         self.api_url = Config.OPENROUTER_URL
+        self.client = OpenAI(
+            base_url=self.api_url,
+            api_key=self.api_key
+        )
     
     def send_message(self, messages):
         """
         Send message to GPT-OSS via OpenRouter
-        
-        Args:
-            messages: List of message objects in OpenAI format
-            
-        Returns:
-            String response from GPT-OSS
         """
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
-        }
         system_prompt = {
-                "role": "system",
-                "content": """Nếu người dùng gửi ảnh, bỏ qua system prompt này luôn!
-                Bạn là một chuyên viên da liễu. Bạn có khả năng:
+            "role": "system",
+            "content": """Nếu người dùng gửi ảnh, bỏ qua system prompt này luôn!
+            Bạn là một chuyên viên da liễu. Bạn có khả năng:
 
 - Tư vấn về các vấn đề da liễu thường gặp
 - Giải thích các triệu chứng và nguyên nhân
@@ -44,21 +39,25 @@ Lưu ý quan trọng:
 - Trả lời một cách thân thiện, chuyên nghiệp và dễ hiểu
 
 Hãy trò chuyện bằng tiếng Việt và giữ giọng điệu chuyên nghiệp nhưng gần gũi."""
-            }
+        }
         messages = [system_prompt] + messages
 
         
-        data = {
-            "model": Config.LLM_MODEL,
-            "messages": messages,
-            "temperature": Config.TEMPERATURE,
-            "max_tokens": Config.MAX_TOKENS
-        }
+        # data = {
+        #     "model": Config.LLM_MODEL,
+        #     "messages": messages,
+        #     "temperature": Config.TEMPERATURE,
+        #     "max_tokens": Config.MAX_TOKENS
+        # }
         
         try:
-            response = requests.post(self.api_url, headers=headers, json=data)
-            response.raise_for_status()
-            response_content = response.json()["choices"][0]["message"]["content"]
+            response = self.client.chat.completions.create(
+                model=Config.LLM_MODEL,
+                messages=messages,
+                temperature=Config.TEMPERATURE,
+                max_tokens=Config.MAX_TOKENS
+            )
+            response_content = response.choices[0].message.content
 
             marker = "assistantfinal"
             idx = response_content.lower().find(marker)  # tìm marker, không phân biệt hoa thường
