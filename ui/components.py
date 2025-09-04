@@ -145,23 +145,59 @@ class UIComponents:
                 padding-left: 1rem !important;
                 padding-right: 1rem !important;
             }
-            /* Camera diagnosis button styling */
+            /* Camera diagnosis button styling - SUPER BEAUTIFUL VERSION */
             div[data-testid="column"]:first-child .stButton > button {
                 width: 100% !important;
-                height: 3rem !important;
-                border-radius: 8px !important;
-                border: 2px solid #4facfe !important;
-                background: transparent !important;
-                color: #4facfe !important;
-                font-size: 1.2rem !important;
-                font-weight: bold !important;
-                transition: all 0.3s ease !important;
-                margin-bottom: 0.5rem !important;
-            }
-            div[data-testid="column"]:first-child .stButton > button:hover {
-                background: #4facfe !important;
+                height: 3.5rem !important;
+                border-radius: 20px !important;
+                border: none !important;
+                background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 30%, #45b7d1 70%, #96ceb4 100%) !important;
                 color: white !important;
-                transform: scale(1.05) !important;
+                font-size: 1.6rem !important;
+                font-weight: bold !important;
+                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+                margin-bottom: 0.5rem !important;
+                box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4) !important;
+                position: relative !important;
+                overflow: hidden !important;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+            }
+            
+            /* Hover effect - even more beautiful */
+            div[data-testid="column"]:first-child .stButton > button:hover {
+                background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 30%, #96ceb4 70%, #ff6b6b 100%) !important;
+                transform: translateY(-4px) scale(1.05) rotate(2deg) !important;
+                box-shadow: 0 15px 40px rgba(78, 205, 196, 0.6) !important;
+                animation: pulse 0.6s ease-in-out !important;
+            }
+            
+            /* Active/click effect */
+            div[data-testid="column"]:first-child .stButton > button:active {
+                transform: translateY(-1px) scale(1.02) !important;
+                box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4) !important;
+            }
+            
+            /* Animated background gradient */
+            div[data-testid="column"]:first-child .stButton > button::before {
+                content: '' !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: -100% !important;
+                width: 100% !important;
+                height: 100% !important;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent) !important;
+                transition: left 0.8s ease !important;
+            }
+            
+            div[data-testid="column"]:first-child .stButton > button:hover::before {
+                left: 100% !important;
+            }
+            
+            /* Pulse animation keyframes */
+            @keyframes pulse {
+                0% { box-shadow: 0 15px 40px rgba(78, 205, 196, 0.6); }
+                50% { box-shadow: 0 15px 40px rgba(78, 205, 196, 0.8), 0 0 30px rgba(78, 205, 196, 0.4); }
+                100% { box-shadow: 0 15px 40px rgba(78, 205, 196, 0.6); }
             }
 
             .stChatMessage {
