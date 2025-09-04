@@ -10,6 +10,7 @@ class Config:
     OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
     OPENROUTER_URL = "https://openrouter.ai/api/v1"
     
+    
     # Model Configuration
     LLM_MODEL = "openai/gpt-oss-20b:free"
     VISION_MODEL = "Jayanth2002/dinov2-base-finetuned-SkinDisease"
