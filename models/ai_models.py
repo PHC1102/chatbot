@@ -5,7 +5,8 @@ import streamlit as st
 import torch
 from transformers import AutoImageProcessor, AutoModelForImageClassification
 from config.settings import Config
-
+import json
+import os
 class VisionModel:
     """Handles skin disease classification model"""
     
@@ -13,6 +14,9 @@ class VisionModel:
         self.processor = None
         self.model = None
         self._load_model()
+        json_path = os.path.join(os.path.dirname(__file__), 'disease_mapping.json')
+        with open(json_path, 'r', encoding='utf-8') as f:
+            self.name_mapping = json.load(f)
     
     @st.cache_resource
     def _load_model(_self):
@@ -64,7 +68,7 @@ class VisionModel:
             for idx, score in zip(top3_indices, top3_scores):
                 label = self.model.config.id2label[idx.item()]
                 results.append({
-                    'label': label,
+                    'label': label + self.name_mapping.get(label, label),
                     'score': score.item()
                 })
             
