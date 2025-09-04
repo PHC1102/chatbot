@@ -53,7 +53,12 @@ class MedicalChatbot:
     
     def _handle_regular_chat(self):
         """Handle regular chat interactions"""
-        prompt = self.ui_components.render_chat_input()
+        prompt, diagnosis_clicked = self.ui_components.render_chat_input_with_diagnosis()
+        
+        # Handle diagnosis button click
+        if diagnosis_clicked:
+            self.session_manager.set_diagnosis_mode(True)
+            st.rerun()
         
         if prompt:
             # Add user message
@@ -118,10 +123,6 @@ class MedicalChatbot:
         
         # Render header
         self.ui_components.render_header()
-        
-        # Render diagnosis button
-        if self.ui_components.render_diagnosis_button():
-            self.session_manager.set_diagnosis_mode(True)
         
         st.markdown("---")
         
