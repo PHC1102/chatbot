@@ -1,0 +1,675 @@
+[
+  {
+    "tên bệnh": "Basal Cell Carcinoma",
+    "độ nguy hiểm": "Trung Bình",
+    "triệu chứng": [
+      "Tăng sinh mảng da hoặc u cục mới ở mặt, cổ",
+      "Vết loét không lành",
+      "U cục bóng nước, màu trắng ngọc, hồng nhạt hoặc nâu",
+      "Mảng da phẳng, vảy, viền nổi bật"
+    ],
+    "nên làm gì": [
+      "Khám bác sĩ da liễu khi phát hiện tổn thương bất thường",
+      "Điều trị bằng phẫu thuật hoặc xạ trị theo chỉ định",
+      "Tránh tiếp xúc ánh nắng, dùng kem chống nắng"
+    ],
+    "không nên làm gì": [
+      "Tự ý chọc vết loét hoặc tổn thương da",
+      "Bỏ qua vết tổn thương mới hoặc không lành"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Basal Cell Carcinoma_1.jpg",
+      "database/disease_images/Basal Cell Carcinoma_2.jpg",
+      "database/disease_images/Basal Cell Carcinoma_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Darier_s Disease",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Mảng da sần, vảy, mụn nước nhỏ ở ngực, lưng, da đầu",
+      "Đau, ngứa, có thể tổn thương móng tay và niêm mạc"
+    ],
+    "nên làm gì": [
+      "Tránh nhiệt, ánh nắng, giữ vệ sinh da",
+      "Dùng thuốc corticosteroid hoặc retinoid theo chỉ định",
+      "Điều trị nhiễm khuẩn nếu có"
+    ],
+    "không nên làm gì": [
+      "Mặc quần áo gây kích ứng",
+      "Dùng thuốc không theo chỉ định"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Darier_s Disease_1.jpg",
+      "database/disease_images/Darier_s Disease_2.jpg",
+      "database/disease_images/Darier_s Disease_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Epidermolysis Bullosa Pruriginosa",
+    "độ nguy hiểm": "Trung Bình",
+    "triệu chứng": [
+      "Da mỏng, dễ bong tróc, mụn nước, sẹo dày ở chi",
+      "Ngứa dữ dội, tổn thương giống chàm hoặc lichen hóa"
+    ],
+    "nên làm gì": [
+      "Giảm ma sát, tránh tổn thương cơ học",
+      "Dùng thuốc chống ngứa, corticosteroid, ức chế miễn dịch",
+      "Điều trị nhiễm trùng thứ phát"
+    ],
+    "không nên làm gì": [
+      "Gãi hoặc làm tổn thương da",
+      "Bỏ qua các dấu hiệu nhiễm trùng da"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Epidermolysis Bullosa Pruriginosa_1.jpg",
+      "database/disease_images/Epidermolysis Bullosa Pruriginosa_2.jpg",
+      "database/disease_images/Epidermolysis Bullosa Pruriginosa_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Hailey-Hailey Disease",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Mảng da đỏ, nứt nẻ, phồng rộp ở vùng da gấp",
+      "Ngứa và đau khi tổn thương bội nhiễm"
+    ],
+    "nên làm gì": [
+      "Giữ vùng da sạch, khô",
+      "Dùng thuốc corticosteroid, thuốc kháng sinh nếu nhiễm trùng",
+      "Tránh kích thích và ma sát vùng tổn thương"
+    ],
+    "không nên làm gì": [
+      "Cào gãi hoặc kéo căng da vùng tổn thương",
+      "Dùng thuốc không theo chỉ định bác sĩ"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Hailey-Hailey Disease_1.jpg",
+      "database/disease_images/Hailey-Hailey Disease_2.jpg",
+      "database/disease_images/Hailey-Hailey Disease_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Herpes Simplex",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Mụn nước nhỏ, đau, ngứa ở vùng da hoặc niêm mạc",
+      "Phồng rộp, loét, có thể kèm sốt hoặc đau cơ"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc kháng virus theo hướng dẫn bác sĩ",
+      "Giữ vệ sinh vùng tổn thương",
+      "Tránh tiếp xúc trực tiếp để phòng lây nhiễm"
+    ],
+    "không nên làm gì": [
+      "Chạm vào mụn nước rồi chạm vào người khác",
+      "Bỏ qua các triệu chứng hoặc tự ý dùng thuốc"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Herpes Simplex_1.jpg",
+      "database/disease_images/Herpes Simplex_2.jpg",
+      "database/disease_images/Herpes Simplex_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Impetigo",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Mụn nước nhỏ, vỡ tạo thành vảy màu nâu vàng",
+      "Tổn thương thường ở mặt, tay chân",
+      "Ngứa, có thể lan rộng"
+    ],
+    "nên làm gì": [
+      "Điều trị kháng sinh tại chỗ hoặc toàn thân",
+      "Giữ vệ sinh vùng da tổn thương",
+      "Tránh gãi gây lan rộng hoặc bội nhiễm"
+    ],
+    "không nên làm gì": [
+      "Không tự ý bóc vảy",
+      "Không dùng thuốc không theo chỉ định"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Impetigo_1.jpg",
+      "database/disease_images/Impetigo_2.jpg",
+      "database/disease_images/Impetigo_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Larva Migrans",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Đường lạ trên da di chuyển, gây ngứa dữ dội",
+      "Tổn thương đơn độc hoặc nhiều đường ngoằn ngoèo"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc chống ký sinh trùng theo chỉ định",
+      "Giữ vệ sinh cá nhân tốt"
+    ],
+    "không nên làm gì": [
+      "Không gãi làm tổn thương da",
+      "Không tự ý dùng thuốc điều trị"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Larva Migrans_1.jpg",
+      "database/disease_images/Larva Migrans_2.jpg",
+      "database/disease_images/Larva Migrans_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Leprosy Borderline",
+    "độ nguy hiểm": "Trung Bình đến Nguy Hiểm",
+    "triệu chứng": [
+      "Tổn thương da đỏ, sưng, có viền rõ",
+      "Tổn thương thần kinh kèm theo"
+    ],
+    "nên làm gì": [
+      "Điều trị theo phác đồ thuốc chống phong",
+      "Theo dõi biến chứng thần kinh"
+    ],
+    "không nên làm gì": [
+      "Không bỏ điều trị",
+      "Không tự ý ngưng thuốc"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Leprosy Borderline_1.jpg",
+      "database/disease_images/Leprosy Borderline_2.jpg",
+      "database/disease_images/Leprosy Borderline_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Leprosy Lepromatous",
+    "độ nguy hiểm": "Nguy Hiểm",
+    "triệu chứng": [
+      "Nốt u cục lớn, sưng phù, có thể loét",
+      "Biến chứng tổn thương da nặng nề"
+    ],
+    "nên làm gì": [
+      "Điều trị kháng phong kết hợp thuốc u hạt chuyên sâu",
+      "Theo dõi và điều trị các biến chứng"
+    ],
+    "không nên làm gì": [
+      "Không bỏ điều trị",
+      "Không tiếp xúc để lây lan"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Leprosy Lepromatous_1.jpg",
+      "database/disease_images/Leprosy Lepromatous_2.jpg",
+      "database/disease_images/Leprosy Lepromatous_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Leprosy Tuberculoid",
+    "độ nguy hiểm": "Trung Bình",
+    "triệu chứng": [
+      "Tổn thương da sưng đỏ, viền rõ, ít lan rộng",
+      "Tổn thương thần kinh nhẹ"
+    ],
+    "nên làm gì": [
+      "Điều trị thuốc phong đúng phác đồ",
+      "Theo dõi sức khỏe thần kinh"
+    ],
+    "không nên làm gì": [
+      "Không ngừng thuốc đột ngột",
+      "Không tự ý điều trị tại nhà"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Leprosy Tuberculoid_1.jpg",
+      "database/disease_images/Leprosy Tuberculoid_2.jpg",
+      "database/disease_images/Leprosy Tuberculoid_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Lichen Planus",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Ban màu tím đỏ, hình đa giác, sẩn nhỏ, ngứa",
+      "Xuất hiện ở cổ, cổ tay, vùng sinh dục"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc corticosteroid tại chỗ",
+      "Tránh gãi để không bội nhiễm"
+    ],
+    "không nên làm gì": [
+      "Không cào gãi",
+      "Không dùng thuốc không theo chỉ định"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Lichen Planus_1.jpg",
+      "database/disease_images/Lichen Planus_2.jpg",
+      "database/disease_images/Lichen Planus_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Lupus Erythematosus Chronicus Discoides",
+    "độ nguy hiểm": "Trung Bình",
+    "triệu chứng": [
+      "Ban đỏ hình đĩa, vảy, để lại sẹo sau viêm",
+      "Thường xuất hiện vùng mặt, da đầu"
+    ],
+    "nên làm gì": [
+      "Tránh ánh nắng mặt trời",
+      "Dùng thuốc corticosteroid và thuốc ức chế miễn dịch",
+      "Theo dõi định kỳ với bác sĩ da liễu"
+    ],
+    "không nên làm gì": [
+      "Không tiếp xúc ánh nắng mạnh",
+      "Không bỏ điều trị giữa chừng"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Lupus Erythematosus Chronicus Discoides_1.jpg",
+      "database/disease_images/Lupus Erythematosus Chronicus Discoides_2.jpg",
+      "database/disease_images/Lupus Erythematosus Chronicus Discoides_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Melanoma",
+    "độ nguy hiểm": "Nguy Hiểm",
+    "triệu chứng": [
+      "Nốt ruồi bất thường, thay đổi kích thước, màu sắc",
+      "Tổn thương trên da tăng sinh không kiểm soát"
+    ],
+    "nên làm gì": [
+      "Khám da liễu định kỳ",
+      "Phẫu thuật loại bỏ tổn thương",
+      "Theo dõi sát và điều trị bổ trợ"
+    ],
+    "không nên làm gì": [
+      "Không bỏ qua bất kỳ tổn thương mới lạ",
+      "Không tự điều trị"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Melanoma_1.jpg",
+      "database/disease_images/Melanoma_2.jpg",
+      "database/disease_images/Melanoma_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Molluscum Contagiosum",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Mụn cóc mềm, nổi trên da niêm mạc",
+      "Có thể gây ngứa, đau nhẹ"
+    ],
+    "nên làm gì": [
+      "Điều trị theo chỉ định bác sĩ với thuốc hoặc đốt",
+      "Tránh quan hệ tình dục khi đang bệnh"
+    ],
+    "không nên làm gì": [
+      "Không tự ý bóc mụn",
+      "Không dùng thuốc không rõ nguồn gốc"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Molluscum Contagiosum_1.jpg",
+      "database/disease_images/Molluscum Contagiosum_2.jpg",
+      "database/disease_images/Molluscum Contagiosum_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Mycosis Fungoides",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Ban đỏ, tróc vảy, ranh giới rõ ràng",
+      "Ngứa tại vùng tổn thương"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc chống nấm đúng liều",
+      "Giữ vệ sinh da sạch sẽ"
+    ],
+    "không nên làm gì": [
+      "Không gãi làm tổn thương da",
+      "Không bỏ dở liệu trình thuốc"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Mycosis Fungoides_1.jpg",
+      "database/disease_images/Mycosis Fungoides_2.jpg",
+      "database/disease_images/Mycosis Fungoides_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Neurofibromatosis",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Nốt u mềm dưới da, màu sắc đa dạng",
+      "Có thể kèm theo triệu chứng thần kinh"
+    ],
+    "nên làm gì": [
+      "Theo dõi định kỳ với bác sĩ",
+      "Điều trị triệu chứng khi được chỉ định"
+    ],
+    "không nên làm gì": [
+      "Không tự ý cắt hoặc bóc u",
+      "Không bỏ qua các triệu chứng mới"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Neurofibromatosis_1.jpg",
+      "database/disease_images/Neurofibromatosis_2.jpg",
+      "database/disease_images/Neurofibromatosis_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Papilomatosis Confluentes And Reticulate",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Xuất hiện các mảng da sần, mụn nhỏ trên bề mặt da, có thể kết dính thành mảng lớn",
+      "Ngứa nhẹ hoặc không ngứa"
+    ],
+    "nên làm gì": [
+      "Giữ vệ sinh da sạch sẽ, tránh ẩm ướt",
+      "Dùng thuốc corticosteroid hoặc kem dưỡng theo chỉ định bác sĩ",
+      "Tránh gãi để không gây tổn thương da"
+    ],
+    "không nên làm gì": [
+      "Không dùng các loại kem không rõ nguồn gốc",
+      "Không cào gãi gây tổn thương lan rộng"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Papilomatosis Confluentes And Reticulate_1.jpg",
+      "database/disease_images/Papilomatosis Confluentes And Reticulate_2.jpg",
+      "database/disease_images/Papilomatosis Confluentes And Reticulate_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Pediculosis Capitis",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Ngứa nhiều vùng da đầu do chấy và trứng chấy",
+      "Thấy chấy bò và trứng bám chắc vào tóc"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc diệt chấy theo hướng dẫn",
+      "Chải tóc kỹ để loại bỏ trứng và chấy",
+      "Vệ sinh cá nhân và đồ dùng thường xuyên"
+    ],
+    "không nên làm gì": [
+      "Không gãi nhiều gây tổn thương da đầu",
+      "Không bỏ qua việc điều trị và vệ sinh đồ dùng"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Pediculosis Capitis_1.jpg",
+      "database/disease_images/Pediculosis Capitis_2.jpg",
+      "database/disease_images/Pediculosis Capitis_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Pityriasis Rosea",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Ban đỏ hình tròn, có vảy mỏng ở giữa, thường xuất hiện ở thân mình",
+      "Ngứa nhẹ hoặc không ngứa"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc corticosteroid bôi tại chỗ",
+      "Giữ da sạch sẽ và tránh kích ứng",
+      "Theo dõi tiến triển và tái khám"
+    ],
+    "không nên làm gì": [
+      "Không tắm nước quá nóng",
+      "Không gãi mạnh gây tổn thương da"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Pityriasis Rosea_1.jpg",
+      "database/disease_images/Pityriasis Rosea_2.jpg",
+      "database/disease_images/Pityriasis Rosea_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Porokeratosis Actinic",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Mảng da dày, hơi đỏ, nổi sừng ở vùng da tiếp xúc ánh nắng",
+      "Có thể ngứa hoặc không"
+    ],
+    "nên làm gì": [
+      "Tránh tiếp xúc ánh nắng trực tiếp, dùng kem chống nắng",
+      "Dùng thuốc làm mềm, retinoid theo chỉ định",
+      "Theo dõi định kỳ"
+    ],
+    "không nên làm gì": [
+      "Không bỏ qua triệu chứng kéo dài",
+      "Không tiếp xúc nắng mà không bảo vệ da"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Porokeratosis Actinic_1.jpg",
+      "database/disease_images/Porokeratosis Actinic_2.jpg",
+      "database/disease_images/Porokeratosis Actinic_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Psoriasis",
+    "độ nguy hiểm": "Trung Bình",
+    "triệu chứng": [
+      "Ban đỏ, vảy bạc, ranh giới rõ trên da",
+      "Ngứa và tổn thương thường thấy ở khuỷu tay, đầu gối, da đầu"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc corticosteroid, calcipotriol tại chỗ",
+      "Điều trị bằng ánh sáng hoặc thuốc hệ thống khi cần",
+      "Giữ da ẩm và tránh kích ứng"
+    ],
+    "không nên làm gì": [
+      "Không gãi mạnh gây tổn thương da",
+      "Không bỏ dở liệu trình điều trị"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Psoriasis_1.jpg",
+      "database/disease_images/Psoriasis_2.jpg",
+      "database/disease_images/Psoriasis_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Tinea Corporis",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Ban tròn, đỏ, viền gợn sóng, có vảy",
+      "Ngứa nhiều vùng da thân mình"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc chống nấm tại chỗ hoặc toàn thân",
+      "Giữ vùng da sạch, khô thoáng",
+      "Tránh gãi gây trầy xước"
+    ],
+    "không nên làm gì": [
+      "Không tự ý dùng thuốc không rõ nguồn gốc",
+      "Không mặc quần áo chật làm tổn thương da"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Tinea Corporis_1.jpg",
+      "database/disease_images/Tinea Corporis_2.jpg",
+      "database/disease_images/Tinea Corporis_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Tinea Nigra",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Mảng da nhỏ, màu nâu đen hoặc đen ở lòng bàn tay hoặc chân",
+      "Hầu như không ngứa, không đau"
+    ],
+    "nên làm gì": [
+      "Dùng thuốc chống nấm theo chỉ định",
+      "Giữ vệ sinh vùng tổn thương",
+      "Tránh tiếp xúc ánh nắng mạnh"
+    ],
+    "không nên làm gì": [
+      "Không bỏ qua tổn thương kéo dài",
+      "Không sử dụng kem trộn hoặc thuốc không rõ nguồn gốc"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Tinea Nigra_1.jpg",
+      "database/disease_images/Tinea Nigra_2.jpg",
+      "database/disease_images/Tinea Nigra_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "Tungiasis",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Tổn thương da do bọ chét cát cắn, có thể phát ban, ngứa",
+      "Phổ biến ở bàn chân, đặc biệt khi tiếp xúc môi trường có cát"
+    ],
+    "nên làm gì": [
+      "Vệ sinh sạch sẽ vùng da bị cắn",
+      "Dùng thuốc chống ngứa, kháng viêm",
+      "Tránh tiếp xúc với môi trường chứa bọ chét"
+    ],
+    "không nên làm gì": [
+      "Không gãi gây tổn thương da",
+      "Không để lâu không điều trị"
+    ],
+    "hình ảnh": [
+      "database/disease_images/Tungiasis_1.jpg",
+      "database/disease_images/Tungiasis_2.jpg",
+      "database/disease_images/Tungiasis_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "actinic keratosis",
+    "độ nguy hiểm": "Trung Bình",
+    "triệu chứng": [
+      "Mảng da dày, sần, có thể có vảy hoặc đóng vảy",
+      "Xuất hiện ở vùng tiếp xúc nhiều ánh sáng mặt trời"
+    ],
+    "nên làm gì": [
+      "Tránh tiếp xúc ánh nắng trực tiếp",
+      "Dùng kem chống nắng, kem dưỡng làm mềm da",
+      "Điều trị bằng thuốc retinoid hoặc các liệu pháp phù hợp"
+    ],
+    "không nên làm gì": [
+      "Không bỏ qua tổn thương da kéo dài",
+      "Không tự ý dùng thuốc không theo chỉ định"
+    ],
+    "hình ảnh": [
+      "database/disease_images/actinic keratosis_1.jpg",
+      "database/disease_images/actinic keratosis_2.jpg",
+      "database/disease_images/actinic keratosis_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "dermatofibroma",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Nốt u nhỏ dưới da, màu nâu đỏ hoặc vàng",
+      "Không đau, không ngứa"
+    ],
+    "nên làm gì": [
+      "Theo dõi kích thước và tính chất u",
+      "Tham khảo ý kiến bác sĩ nếu u lớn hoặc thay đổi"
+    ],
+    "không nên làm gì": [
+      "Không tự ý chọc, nặn u",
+      "Không dùng thuốc điều trị không có chỉ định"
+    ],
+    "hình ảnh": [
+      "database/disease_images/dermatofibroma_1.jpg",
+      "database/disease_images/dermatofibroma_2.jpg",
+      "database/disease_images/dermatofibroma_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "nevus",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Đốm hoặc nốt trên da, màu nâu, đen hoặc đa sắc",
+      "Kích thước và hình dạng đa dạng"
+    ],
+    "nên làm gì": [
+      "Theo dõi chuyển biến của nốt ruồi",
+      "Đi khám bác sĩ nếu nốt ruồi thay đổi kích thước, màu sắc hoặc hình dạng"
+    ],
+    "không nên làm gì": [
+      "Không cào hay chà xát nốt ruồi",
+      "Không bỏ qua các dấu hiệu bất thường"
+    ],
+    "hình ảnh": [
+      "database/disease_images/nevus_1.jpg",
+      "database/disease_images/nevus_2.jpg",
+      "database/disease_images/nevus_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "pigmented benign keratosis",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Mảng da dày, có vảy màu nâu hoặc đen",
+      "Không đau, không ngứa"
+    ],
+    "nên làm gì": [
+      "Theo dõi tổn thương",
+      "Dùng kem dưỡng hoặc thuốc điều trị nếu cần"
+    ],
+    "không nên làm gì": [
+      "Không tự ý cạy, gãi gây tổn thương",
+      "Không bỏ qua tổn thương mới hoặc thay đổi"
+    ],
+    "hình ảnh": [
+      "database/disease_images/pigmented benign keratosis_1.jpg",
+      "database/disease_images/pigmented benign keratosis_2.jpg",
+      "database/disease_images/pigmented benign keratosis_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "seborrheic keratosis",
+    "độ nguy hiểm": "Nhẹ",
+    "triệu chứng": [
+      "Mảng da nổi sừng, màu vàng nhờn, bề mặt sần sùi",
+      "Không đau, không ngứa"
+    ],
+    "nên làm gì": [
+      "Theo dõi và tái khám định kỳ",
+      "Có thể dùng thuốc làm mềm da hoặc loại bỏ tổn thương"
+    ],
+    "không nên làm gì": [
+      "Không tự ý cạy hoặc bóc tổn thương",
+      "Không bỏ qua tổn thương mới hoặc thay đổi"
+    ],
+    "hình ảnh": [
+      "database/disease_images/seborrheic keratosis_1.jpg",
+      "database/disease_images/seborrheic keratosis_2.jpg",
+      "database/disease_images/seborrheic keratosis_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "squamous cell carcinoma",
+    "độ nguy hiểm": "Nguy Hiểm",
+    "triệu chứng": [
+      "Nốt hoặc mảng da đỏ, sần, dễ chảy máu hoặc loét",
+      "Có thể lan ra các mô xung quanh"
+    ],
+    "nên làm gì": [
+      "Đi khám và điều trị kịp thời tại các cơ sở chuyên khoa",
+      "Phẫu thuật loại bỏ tổn thương, xạ trị hoặc hóa trị nếu cần",
+      "Theo dõi sát và điều trị biến chứng"
+    ],
+    "không nên làm gì": [
+      "Không tự điều trị hoặc bỏ qua triệu chứng",
+      "Không làm tổn thương vùng da nghi ngờ"
+    ],
+    "hình ảnh": [
+      "database/disease_images/squamous cell carcinoma_1.jpg",
+      "database/disease_images/squamous cell carcinoma_2.jpg",
+      "database/disease_images/squamous cell carcinoma_3.jpg"
+    ]
+  },
+  {
+    "tên bệnh": "vascular lesion",
+    "độ nguy hiểm": "Nhẹ đến Trung Bình",
+    "triệu chứng": [
+      "Những mảng đỏ hoặc tím trên da, có thể sưng hoặc không đau",
+      "Có thể xuất hiện nốt mạch máu hoặc mạch máu ngoằn ngoèo"
+    ],
+    "nên làm gì": [
+      "Theo dõi biểu hiện tổn thương",
+      "Duy trì vệ sinh da và theo dõi tiến triển",
+      "Đi khám chuyên khoa nếu có triệu chứng nghiêm trọng"
+    ],
+    "không nên làm gì": [
+      "Không nặn hoặc gây tổn thương khu vực tổn thương",
+      "Không bỏ qua các dấu hiệu bất thường"
+    ],
+    "hình ảnh": [
+      "database/disease_images/vascular lesion_1.jpg",
+      "database/disease_images/vascular lesion_2.jpg",
+      "database/disease_images/vascular lesion_3.jpg"
+    ]
+  }
+]
