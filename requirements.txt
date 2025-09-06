@@ -5,3 +5,5 @@ torch
 transformers
 numpy
 openai
+chromadb>=0.4.15
+tiktoken

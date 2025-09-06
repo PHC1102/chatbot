@@ -52,7 +52,7 @@ class MedicalChatbot:
         self.diagnosis_service = DiagnosisService(vision_model)
     
     def _handle_regular_chat(self):
-        """Handle regular chat interactions"""
+        """Handle regular chat interactions with RAG support"""
         prompt, diagnosis_clicked = self.ui_components.render_chat_input_with_diagnosis()
         
         # Handle diagnosis button click
@@ -68,12 +68,20 @@ class MedicalChatbot:
             with st.chat_message("user"):
                 st.markdown(prompt)
             
-            # Get response from GPT-OSS
+            # Get response from GPT-OSS with RAG enhancement
             with st.chat_message("assistant"):
                 with st.spinner("Đang suy nghĩ..."):
                     messages = self.session_manager.get_messages()
                     api_messages = self.chat_service.prepare_messages_for_api(messages)
-                    response = self.chat_service.send_message(api_messages)
+                    # Pass the user query for RAG context retrieval
+                    response, relevant_images = self.chat_service.send_message(api_messages, user_query=prompt)
+                    
+                    # Display relevant disease images first if available
+                    if relevant_images:
+                        st.markdown("**Hình ảnh minh họa:**")
+                        self.ui_components.render_disease_images(relevant_images)
+                    
+                    # Display text response
                     st.markdown(response)
                     
                     # Add assistant response to history
@@ -99,15 +107,45 @@ class MedicalChatbot:
             
             # Process diagnosis
             with st.spinner("Đang phân tích ảnh..."):
-                success, response_message = self.diagnosis_service.process_image_diagnosis(
+                success, response_message, diagnosis_images = self.diagnosis_service.process_image_diagnosis(
                     image, self.session_manager.get_messages()
                 )
                 
                 if success:
-                    # Display results in chat
-                    self.diagnosis_service.display_diagnosis_in_chat(
-                        image, response_message, self.session_manager.get_messages()
+                    # Display results in chat and get primary disease name
+                    primary_disease = self.diagnosis_service.display_diagnosis_in_chat(
+                        image, response_message, self.session_manager.get_messages(), diagnosis_images
                     )
+                    
+                    # Show quick question popup if a disease was identified
+                    if primary_disease:
+                        question_clicked = self.ui_components.render_quick_question_popup(primary_disease)
+                        
+                        if question_clicked:
+                            # Add the quick question to chat and process it
+                            quick_question = f"cho tôi thông tin bệnh {primary_disease}"
+                            self.session_manager.add_message("user", quick_question)
+                            
+                            # Process the quick question immediately
+                            with st.chat_message("user"):
+                                st.markdown(quick_question)
+                            
+                            with st.chat_message("assistant"):
+                                with st.spinner("Đang tìm thông tin..."):
+                                    messages = self.session_manager.get_messages()
+                                    api_messages = self.chat_service.prepare_messages_for_api(messages)
+                                    response, relevant_images = self.chat_service.send_message(api_messages, user_query=quick_question)
+                                    
+                                    # Display relevant disease images first if available
+                                    if relevant_images:
+                                        st.markdown("**Hình ảnh minh họa:**")
+                                        self.ui_components.render_disease_images(relevant_images)
+                                    
+                                    # Display text response
+                                    st.markdown(response)
+                                    
+                                    # Add assistant response to history
+                                    self.session_manager.add_message("assistant", response)
                 else:
                     self.error_handler.display_error(response_message)
                     self.session_manager.add_message("assistant", response_message)
