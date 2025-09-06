@@ -25,6 +25,7 @@ class RAGService:
         self.tokenizer = tiktoken.get_encoding("cl100k_base")
         self.max_chunk_size = 500  # Maximum tokens per chunk
         self.database_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database", "diseases.json")
+        self.hospital_database_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database", "hospital_rag.json")
         
         # Initialize ChromaDB
         self._initialize_chromadb()
@@ -84,8 +85,16 @@ class RAGService:
                 for j, chunk in enumerate(chunks):
                     chunk_id = f"disease_{i}_chunk_{j}"
                     documents.append(chunk["text"])
+                    
+                    # Handle both list and string formats for disease names
+                    disease_names = disease["tên bệnh"]
+                    if isinstance(disease_names, list):
+                        primary_name = disease_names[0]
+                    else:
+                        primary_name = disease_names
+                    
                     metadatas.append({
-                        "disease_name": disease["tên bệnh"],
+                        "disease_name": primary_name,
                         "danger_level": disease["độ nguy hiểm"],
                         "chunk_type": chunk["type"],
                         "disease_index": i
@@ -121,13 +130,21 @@ class RAGService:
             List of text chunks with metadata
         """
         chunks = []
-        disease_name = disease["tên bệnh"]
+        disease_names = disease["tên bệnh"]
         danger_level = disease["độ nguy hiểm"]
         
+        # Handle both list and string formats (for backward compatibility)
+        if isinstance(disease_names, list):
+            primary_name = disease_names[0]  # Use first name as primary
+            all_names = ", ".join(disease_names)
+        else:
+            primary_name = disease_names
+            all_names = disease_names
+        
         # Main disease info chunk
-        main_text = f"Bệnh: {disease_name}\n"
+        main_text = f"Bệnh: {primary_name}\n"
+        main_text += f"Tên khác: {all_names}\n"
         main_text += f"Độ nguy hiểm: {danger_level}\n"
-        main_text += f"Tên bệnh tiếng Anh: {disease_name}"
         
         chunks.append({
             "text": main_text,
@@ -136,7 +153,7 @@ class RAGService:
         
         # Symptoms chunk
         if disease.get("triệu chứng"):
-            symptoms_text = f"Triệu chứng của {disease_name}:\n"
+            symptoms_text = f"Triệu chứng của {primary_name}:\n"
             symptoms_text += "\n".join([f"- {symptom}" for symptom in disease["triệu chứng"]])
             
             chunks.append({
@@ -146,7 +163,7 @@ class RAGService:
         
         # Treatment recommendations chunk
         if disease.get("nên làm gì"):
-            treatment_text = f"Điều trị và chăm sóc {disease_name}:\n"
+            treatment_text = f"Điều trị và chăm sóc {primary_name}:\n"
             treatment_text += "\n".join([f"- {treatment}" for treatment in disease["nên làm gì"]])
             
             chunks.append({
@@ -156,7 +173,7 @@ class RAGService:
         
         # Precautions chunk
         if disease.get("không nên làm gì"):
-            precautions_text = f"Những điều không nên làm khi mắc {disease_name}:\n"
+            precautions_text = f"Những điều không nên làm khi mắc {primary_name}:\n"
             precautions_text += "\n".join([f"- {precaution}" for precaution in disease["không nên làm gì"]])
             
             chunks.append({
@@ -188,9 +205,133 @@ class RAGService:
         query_lower = query.lower()
         return any(keyword in query_lower for keyword in disease_keywords)
     
+    def _is_hospital_related_query(self, query: str) -> bool:
+        """
+        Check if a query is related to hospital/clinic information
+        
+        Args:
+            query: User query text
+            
+        Returns:
+            Boolean indicating if query is hospital-related
+        """
+        hospital_keywords = [
+            "bệnh viện", "phòng khám", "cơ sở", "địa chỉ", "website", "liên hệ",
+            "quận", "huyện", "phường", "xã", "đường", "phố", "ngõ", "số",
+            "hospital", "clinic", "address", "location", "contact", "phone",
+            "ở", "tại", "gần", "khu vực", "vùng", "khám bệnh", "chữa trị",
+            "da liễu", "thẩm mỹ", "chuyên khoa", "đa khoa"
+        ]
+        
+        query_lower = query.lower()
+        return any(keyword in query_lower for keyword in hospital_keywords)
+    
+    def _extract_district_from_query(self, query: str) -> Optional[str]:
+        """
+        Extract district name from user query using rule-based matching
+        
+        Args:
+            query: User query text
+            
+        Returns:
+            District name if found, None otherwise
+        """
+        # List of districts in Hanoi from the hospital database
+        districts = [
+            "Cầu Giấy", "Thanh Xuân", "Hoàng Mai", "Đống Đa", "Hà Đông",
+            "Hai Bà Trưng", "Hoàn Kiếm", "Long Biên", "Tây Hồ", "Bắc Từ Liêm",
+            "Sóc Sơn", "Thạch Thất", "Thường Tín", "Ba Đình", "Thanh Trì",
+            "Ba Vì", "Đan Phượng", "Gia Lâm", "Đông Anh", "Phúc Thọ",
+            "Phú Xuyên", "Quốc Oai", "Ứng Hòa", "Sơn Tây", "Chương Mỹ",
+            "Hoài Đức", "Mỹ Đức", "Thanh Oai", "Nam Từ Liêm"
+        ]
+        
+        query_lower = query.lower()
+        
+        # Try to find district name in query
+        for district in districts:
+            district_lower = district.lower()
+            # Check for exact match or with "quận" prefix
+            if (district_lower in query_lower or 
+                f"quận {district_lower}" in query_lower or
+                f"huyện {district_lower}" in query_lower or
+                f"thị xã {district_lower}" in query_lower):
+                return district
+        
+        return None
+    
+    def _get_hospitals_by_district(self, district: str) -> List[Dict[str, Any]]:
+        """
+        Get hospitals in a specific district from hospital database
+        
+        Args:
+            district: District name
+            
+        Returns:
+            List of hospitals in the district
+        """
+        try:
+            with open(self.hospital_database_path, 'r', encoding='utf-8') as f:
+                hospitals = json.load(f)
+            
+            # Filter hospitals by district (case-insensitive)
+            matching_hospitals = []
+            district_lower = district.lower()
+            
+            for hospital in hospitals:
+                hospital_district = hospital.get("district", "").lower()
+                # Exact match or partial match (for cases like "Ba Đình (Lân cận...)")
+                if district_lower in hospital_district or hospital_district in district_lower:
+                    matching_hospitals.append(hospital)
+            
+            return matching_hospitals
+            
+        except Exception as e:
+            print(f"Error getting hospitals by district: {str(e)}")
+            return []
+    
+    def _format_hospital_context(self, hospitals: List[Dict[str, Any]], district: str) -> str:
+        """
+        Format hospital information into a context string
+        
+        Args:
+            hospitals: List of hospital dictionaries
+            district: District name
+            
+        Returns:
+            Formatted context string
+        """
+        if not hospitals:
+            return f"Không tìm thấy cơ sở da liễu nào tại quận/huyện {district}."
+        
+        context = f"Các cơ sở da liễu tại quận/huyện {district}:\n\n"
+        
+        for i, hospital in enumerate(hospitals, 1):
+            context += f"{i}. **{hospital['name']}**\n"
+            context += f"   - Địa chỉ: {hospital['address']}\n"
+            
+            if hospital.get('phone'):
+                context += f"   - SĐT: {hospital['phone']}\n"
+            
+            if hospital.get('website') and hospital['website'] != 'N/A' and hospital['website']:
+                context += f"   - Website: {hospital['website']}\n"
+            
+            # IMPORTANT: Always include location (Google Maps link)
+            if hospital.get('location'):
+                context += f"   - Vị trí trên bản đồ: {hospital['location']}\n"
+            
+            # Add nearby areas if available
+            if hospital.get('nearby') and hospital['nearby']:
+                nearby_str = ", ".join(hospital['nearby'][:3])  # Limit to first 3 nearby areas
+                context += f"   - Khu vực lân cận: {nearby_str}\n"
+            
+            context += "\n"
+        
+        return context
+    
     def retrieve_relevant_context(self, query: str, n_results: int = 5) -> tuple[Optional[str], Optional[List[str]]]:
         """
-        Retrieve relevant disease context and images for a query
+        Retrieve relevant context and images for a query (diseases or hospitals)
         
         Args:
             query: User query
@@ -199,10 +340,55 @@ class RAGService:
         Returns:
             Tuple of (formatted context string or None, list of image paths or None)
         """
+        # Check if query is hospital-related first (more specific)
+        if self._is_hospital_related_query(query):
+            return self._retrieve_hospital_context(query)
+        
         # Check if query is disease-related
-        if not self._is_disease_related_query(query):
+        elif self._is_disease_related_query(query):
+            return self._retrieve_disease_context(query, n_results)
+        
+        # Neither disease nor hospital related
+        return None, None
+    
+    def _retrieve_hospital_context(self, query: str) -> tuple[Optional[str], Optional[List[str]]]:
+        """
+        Retrieve hospital context using rule-based district matching
+        
+        Args:
+            query: User query
+            
+        Returns:
+            Tuple of (formatted context string or None, None for images)
+        """
+        # Extract district from query
+        district = self._extract_district_from_query(query)
+        
+        if not district:
             return None, None
         
+        # Get hospitals in the district
+        hospitals = self._get_hospitals_by_district(district)
+        
+        if not hospitals:
+            return f"Không tìm thấy cơ sở da liễu nào tại quận/huyện {district}.", None
+        
+        # Format hospital information
+        context = self._format_hospital_context(hospitals, district)
+        
+        return context, None  # No images for hospital queries
+    
+    def _retrieve_disease_context(self, query: str, n_results: int = 5) -> tuple[Optional[str], Optional[List[str]]]:
+        """
+        Retrieve disease context using ChromaDB vector search
+        
+        Args:
+            query: User query
+            n_results: Number of results to retrieve
+            
+        Returns:
+            Tuple of (formatted context string or None, list of image paths or None)
+        """
         try:
             # Query the collection
             results = self.collection.query(
@@ -247,7 +433,7 @@ class RAGService:
             return context_result, images_result
             
         except Exception as e:
-            print(f"Error retrieving context: {str(e)}")
+            print(f"Error retrieving disease context: {str(e)}")
             return None, None
     
     def _get_disease_images(self, disease_name: str) -> List[str]:
@@ -255,7 +441,7 @@ class RAGService:
         Get image paths for a specific disease
         
         Args:
-            disease_name: Name of the disease
+            disease_name: Name of the disease (English or Vietnamese)
             
         Returns:
             List of image paths for the disease
@@ -264,10 +450,22 @@ class RAGService:
             with open(self.database_path, 'r', encoding='utf-8') as f:
                 diseases = json.load(f)
             
+            # Normalize the search term
+            disease_name_lower = disease_name.lower().strip()
+            
+            # Search in database with exact and partial matching
             for disease in diseases:
-                if disease_name.lower() in disease["tên bệnh"].lower():
+                disease_names = disease["tên bệnh"]
+                
+                # Handle both list and string formats (for backward compatibility)
+                if isinstance(disease_names, list):
+                    name_list = [name.lower() for name in disease_names]
+                else:
+                    name_list = [disease_names.lower()]
+                
+                # Try exact match first (highest priority)
+                if disease_name_lower in name_list:
                     images = disease.get("hình ảnh", [])
-                    # Convert relative paths to absolute paths
                     workspace_root = os.path.dirname(os.path.dirname(__file__))
                     absolute_images = []
                     for img_path in images:
@@ -275,7 +473,23 @@ class RAGService:
                             abs_path = os.path.join(workspace_root, img_path)
                             if os.path.exists(abs_path):
                                 absolute_images.append(abs_path)
-                    return absolute_images[:3]  # Limit to first 3 images
+                    if absolute_images:
+                        return absolute_images[:3]
+                
+                # Try partial match (lower priority) - only if no exact match found
+                for name in name_list:
+                    if (len(disease_name_lower) > 3 and disease_name_lower in name) or \
+                       (len(name) > 3 and name in disease_name_lower):
+                        images = disease.get("hình ảnh", [])
+                        workspace_root = os.path.dirname(os.path.dirname(__file__))
+                        absolute_images = []
+                        for img_path in images:
+                            if img_path.startswith("database/"):
+                                abs_path = os.path.join(workspace_root, img_path)
+                                if os.path.exists(abs_path):
+                                    absolute_images.append(abs_path)
+                        if absolute_images:
+                            return absolute_images[:3]
             
             return []
             
@@ -297,7 +511,23 @@ class RAGService:
         context, images = self.retrieve_relevant_context(query)
         
         if context:
-            enhanced_prompt = f"""{original_prompt}
+            # Check if it's a hospital query for specific instructions
+            if self._is_hospital_related_query(query):
+                enhanced_prompt = f"""{original_prompt}
+
+QUAN TRỌNG: Sử dụng thông tin sau từ cơ sở dữ liệu bệnh viện/phòng khám:
+
+{context}
+
+**CHỈ Dẫn ĐẶC BIỆT CHO CƠ SỞ Y TẾ:**
+- CHỈ ĐƯƠ RA THÔNG TIN CÓ TRONG Tài LIỆU, KHÔNG BỊa THÊM
+- TRẢ LỜI ĐÚNg, CHÍNH XÁC theo đúng dữ liệu JSON
+- Hiển thị đầy đủ: tên, địa chỉ, sđt, website (nếu có)
+- Sắp xếp theo thứ tự ưu tiên: cơ sở chuyên khoa da liễu trước
+- KHÔNG bịa thêm thông tin nào khác ngoài JSON"""
+            else:
+                # Disease query - use existing format with concise instruction
+                enhanced_prompt = f"""{original_prompt}
 
 QUAN TRỌNG: Sử dụng thông tin sau từ cơ sở dữ liệu để trả lời chính xác hơn:
 
@@ -314,7 +544,7 @@ Hãy ưu tiên thông tin từ cơ sở dữ liệu trên khi trả lời về c
         Get complete information about a specific disease
         
         Args:
-            disease_name: Name of the disease
+            disease_name: Name of the disease (English or Vietnamese)
             
         Returns:
             Disease information dictionary or None
@@ -323,9 +553,28 @@ Hãy ưu tiên thông tin từ cơ sở dữ liệu trên khi trả lời về c
             with open(self.database_path, 'r', encoding='utf-8') as f:
                 diseases = json.load(f)
             
+            # Normalize the search term
+            disease_name_lower = disease_name.lower().strip()
+            
+            # Search in database with exact and partial matching
             for disease in diseases:
-                if disease_name.lower() in disease["tên bệnh"].lower():
+                disease_names = disease["tên bệnh"]
+                
+                # Handle both list and string formats (for backward compatibility)
+                if isinstance(disease_names, list):
+                    name_list = [name.lower() for name in disease_names]
+                else:
+                    name_list = [disease_names.lower()]
+                
+                # Try exact match first (highest priority)
+                if disease_name_lower in name_list:
                     return disease
+                
+                # Try partial match (lower priority) - only if no exact match found
+                for name in name_list:
+                    if (len(disease_name_lower) > 3 and disease_name_lower in name) or \
+                       (len(name) > 3 and name in disease_name_lower):
+                        return disease
             
             return None
             

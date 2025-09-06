@@ -1,6 +1,9 @@
 [
   {
-    "tên bệnh": "Basal Cell Carcinoma",
+    "tên bệnh": [
+      "Basal Cell Carcinoma",
+      "Ung thư tế bào đáy"
+    ],
     "độ nguy hiểm": "Trung Bình",
     "triệu chứng": [
       "Tăng sinh mảng da hoặc u cục mới ở mặt, cổ",
@@ -24,7 +27,10 @@
     ]
   },
   {
-    "tên bệnh": "Darier_s Disease",
+    "tên bệnh": [
+      "Darier_s Disease",
+      "Bệnh Darier"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Mảng da sần, vảy, mụn nước nhỏ ở ngực, lưng, da đầu",
@@ -46,7 +52,10 @@
     ]
   },
   {
-    "tên bệnh": "Epidermolysis Bullosa Pruriginosa",
+    "tên bệnh": [
+      "Epidermolysis Bullosa Pruriginosa",
+      "Bệnh bong da bẩm sinh ngứa"
+    ],
     "độ nguy hiểm": "Trung Bình",
     "triệu chứng": [
       "Da mỏng, dễ bong tróc, mụn nước, sẹo dày ở chi",
@@ -68,7 +77,10 @@
     ]
   },
   {
-    "tên bệnh": "Hailey-Hailey Disease",
+    "tên bệnh": [
+      "Hailey-Hailey Disease",
+      "Bệnh Hailey-Hailey"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Mảng da đỏ, nứt nẻ, phồng rộp ở vùng da gấp",
@@ -90,7 +102,10 @@
     ]
   },
   {
-    "tên bệnh": "Herpes Simplex",
+    "tên bệnh": [
+      "Herpes Simplex",
+      "Herpes đơn giản"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Mụn nước nhỏ, đau, ngứa ở vùng da hoặc niêm mạc",
@@ -112,7 +127,10 @@
     ]
   },
   {
-    "tên bệnh": "Impetigo",
+    "tên bệnh": [
+      "Impetigo",
+      "Chốc lở"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Mụn nước nhỏ, vỡ tạo thành vảy màu nâu vàng",
@@ -135,7 +153,10 @@
     ]
   },
   {
-    "tên bệnh": "Larva Migrans",
+    "tên bệnh": [
+      "Larva Migrans",
+      "Sâu da di chuyển"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Đường lạ trên da di chuyển, gây ngứa dữ dội",
@@ -156,7 +177,10 @@
     ]
   },
   {
-    "tên bệnh": "Leprosy Borderline",
+    "tên bệnh": [
+      "Leprosy Borderline",
+      "Phong ranh giới"
+    ],
     "độ nguy hiểm": "Trung Bình đến Nguy Hiểm",
     "triệu chứng": [
       "Tổn thương da đỏ, sưng, có viền rõ",
@@ -177,7 +201,10 @@
     ]
   },
   {
-    "tên bệnh": "Leprosy Lepromatous",
+    "tên bệnh": [
+      "Leprosy Lepromatous",
+      "Phong u hạt"
+    ],
     "độ nguy hiểm": "Nguy Hiểm",
     "triệu chứng": [
       "Nốt u cục lớn, sưng phù, có thể loét",
@@ -198,7 +225,10 @@
     ]
   },
   {
-    "tên bệnh": "Leprosy Tuberculoid",
+    "tên bệnh": [
+      "Leprosy Tuberculoid",
+      "Phong lao"
+    ],
     "độ nguy hiểm": "Trung Bình",
     "triệu chứng": [
       "Tổn thương da sưng đỏ, viền rõ, ít lan rộng",
@@ -219,7 +249,10 @@
     ]
   },
   {
-    "tên bệnh": "Lichen Planus",
+    "tên bệnh": [
+      "Lichen Planus",
+      "Địa y phẳng"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Ban màu tím đỏ, hình đa giác, sẩn nhỏ, ngứa",
@@ -240,7 +273,10 @@
     ]
   },
   {
-    "tên bệnh": "Lupus Erythematosus Chronicus Discoides",
+    "tên bệnh": [
+      "Lupus Erythematosus Chronicus Discoides",
+      "Lupus ban đỏ mãn tính dạng đĩa"
+    ],
     "độ nguy hiểm": "Trung Bình",
     "triệu chứng": [
       "Ban đỏ hình đĩa, vảy, để lại sẹo sau viêm",
@@ -262,7 +298,10 @@
     ]
   },
   {
-    "tên bệnh": "Melanoma",
+    "tên bệnh": [
+      "Melanoma",
+      "Ung thư hắc tố"
+    ],
     "độ nguy hiểm": "Nguy Hiểm",
     "triệu chứng": [
       "Nốt ruồi bất thường, thay đổi kích thước, màu sắc",
@@ -284,7 +323,10 @@
     ]
   },
   {
-    "tên bệnh": "Molluscum Contagiosum",
+    "tên bệnh": [
+      "Molluscum Contagiosum",
+      "U mềm lây"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Mụn cóc mềm, nổi trên da niêm mạc",
@@ -305,7 +347,10 @@
     ]
   },
   {
-    "tên bệnh": "Mycosis Fungoides",
+    "tên bệnh": [
+      "Mycosis Fungoides",
+      "U lympho T ở da"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Ban đỏ, tróc vảy, ranh giới rõ ràng",
@@ -326,7 +371,10 @@
     ]
   },
   {
-    "tên bệnh": "Neurofibromatosis",
+    "tên bệnh": [
+      "Neurofibromatosis",
+      "Bệnh u xơ thần kinh"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Nốt u mềm dưới da, màu sắc đa dạng",
@@ -347,7 +395,10 @@
     ]
   },
   {
-    "tên bệnh": "Papilomatosis Confluentes And Reticulate",
+    "tên bệnh": [
+      "Papilomatosis Confluentes And Reticulate",
+      "Viêm da dạng nhú hợp lưu"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Xuất hiện các mảng da sần, mụn nhỏ trên bề mặt da, có thể kết dính thành mảng lớn",
@@ -369,7 +420,10 @@
     ]
   },
   {
-    "tên bệnh": "Pediculosis Capitis",
+    "tên bệnh": [
+      "Pediculosis Capitis",
+      "Chấy đầu"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Ngứa nhiều vùng da đầu do chấy và trứng chấy",
@@ -391,7 +445,10 @@
     ]
   },
   {
-    "tên bệnh": "Pityriasis Rosea",
+    "tên bệnh": [
+      "Pityriasis Rosea",
+      "Vảy nến hồng"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Ban đỏ hình tròn, có vảy mỏng ở giữa, thường xuất hiện ở thân mình",
@@ -413,7 +470,10 @@
     ]
   },
   {
-    "tên bệnh": "Porokeratosis Actinic",
+    "tên bệnh": [
+      "Porokeratosis Actinic",
+      "Sừng hóa lỗ chân lông do ánh sáng"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Mảng da dày, hơi đỏ, nổi sừng ở vùng da tiếp xúc ánh nắng",
@@ -435,7 +495,10 @@
     ]
   },
   {
-    "tên bệnh": "Psoriasis",
+    "tên bệnh": [
+      "Psoriasis",
+      "Vảy nến"
+    ],
     "độ nguy hiểm": "Trung Bình",
     "triệu chứng": [
       "Ban đỏ, vảy bạc, ranh giới rõ trên da",
@@ -457,7 +520,10 @@
     ]
   },
   {
-    "tên bệnh": "Tinea Corporis",
+    "tên bệnh": [
+      "Tinea Corporis",
+      "Nấm da thân mình (hắc lào)"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Ban tròn, đỏ, viền gợn sóng, có vảy",
@@ -479,7 +545,10 @@
     ]
   },
   {
-    "tên bệnh": "Tinea Nigra",
+    "tên bệnh": [
+      "Tinea Nigra",
+      "Nấm đen"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Mảng da nhỏ, màu nâu đen hoặc đen ở lòng bàn tay hoặc chân",
@@ -501,7 +570,10 @@
     ]
   },
   {
-    "tên bệnh": "Tungiasis",
+    "tên bệnh": [
+      "Tungiasis",
+      "Bệnh bọ chét cát"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Tổn thương da do bọ chét cát cắn, có thể phát ban, ngứa",
@@ -523,7 +595,10 @@
     ]
   },
   {
-    "tên bệnh": "actinic keratosis",
+    "tên bệnh": [
+      "actinic keratosis",
+      "Sừng hóa do ánh sáng"
+    ],
     "độ nguy hiểm": "Trung Bình",
     "triệu chứng": [
       "Mảng da dày, sần, có thể có vảy hoặc đóng vảy",
@@ -545,7 +620,10 @@
     ]
   },
   {
-    "tên bệnh": "dermatofibroma",
+    "tên bệnh": [
+      "dermatofibroma",
+      "U xơ da"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Nốt u nhỏ dưới da, màu nâu đỏ hoặc vàng",
@@ -566,7 +644,10 @@
     ]
   },
   {
-    "tên bệnh": "nevus",
+    "tên bệnh": [
+      "nevus",
+      "Nốt ruồi"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Đốm hoặc nốt trên da, màu nâu, đen hoặc đa sắc",
@@ -587,7 +668,10 @@
     ]
   },
   {
-    "tên bệnh": "pigmented benign keratosis",
+    "tên bệnh": [
+      "pigmented benign keratosis",
+      "Sừng hóa lành tính có sắc tố"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Mảng da dày, có vảy màu nâu hoặc đen",
@@ -608,7 +692,10 @@
     ]
   },
   {
-    "tên bệnh": "seborrheic keratosis",
+    "tên bệnh": [
+      "seborrheic keratosis",
+      "Sừng hóa nhờn"
+    ],
     "độ nguy hiểm": "Nhẹ",
     "triệu chứng": [
       "Mảng da nổi sừng, màu vàng nhờn, bề mặt sần sùi",
@@ -629,7 +716,10 @@
     ]
   },
   {
-    "tên bệnh": "squamous cell carcinoma",
+    "tên bệnh": [
+      "squamous cell carcinoma",
+      "Ung thư tế bào vảy"
+    ],
     "độ nguy hiểm": "Nguy Hiểm",
     "triệu chứng": [
       "Nốt hoặc mảng da đỏ, sần, dễ chảy máu hoặc loét",
@@ -651,7 +741,10 @@
     ]
   },
   {
-    "tên bệnh": "vascular lesion",
+    "tên bệnh": [
+      "vascular lesion",
+      "Tổn thương mạch máu"
+    ],
     "độ nguy hiểm": "Nhẹ đến Trung Bình",
     "triệu chứng": [
       "Những mảng đỏ hoặc tím trên da, có thể sưng hoặc không đau",
